@@ -3,31 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Teams</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Team Phoenix - Details</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Dark Theme */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .team-logo {
+      width: 150px;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid #ffcc00;
+    }
+
+    .player-profile h3, .achievements h3 {
+      color: #ffcc00;
+    }
+
+    .card {
+      background: #292929;
+      color: #e0e0e0;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .list-group-item {
+      background: #292929;
+      color: #e0e0e0;
+      border-color: #444;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #0056b3;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    /* Popup modal animation */
+    .modal-content {
+      background: #1f1f1f;
+      color: #e0e0e0;
+      border: none;
+      animation: popUp 0.3s ease-in-out;
+    }
+
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header, .modal-footer {
+      border-color: #444;
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+  </style>
 </head>
 <body>
-  <div class="container py-4">
-    <header class="text-center">
-      <h1 class="mb-4">Add Teams</h1>
-    </header>
 
-    <main>
-      <form id="team-form" class="mb-4">
-        <div class="mb-3">
-          <label for="team-name" class="form-label">Enter Team Name</label>
-          <input type="text" id="team-name" class="form-control" required>
+  <!-- Team Info -->
+  <div class="container my-5">
+    <h1 class="text-center text-warning" data-aos="fade-down">INNOCENT CREWS</h1>
+
+    <div class="text-center">
+      <img src="assets/teamlogo.png" alt="Innocent Crews Logo" class="team-logo" data-aos="fade-up">
+    </div>
+
+    <section class="player-profile mt-4">
+      <h3>Player Profiles</h3>
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card p-3">
+            <img src="assets/player1.png" alt="Player 1" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title text-warning">EANIO</h5>
+              <p class="card-text">Role: COACH | Achievements: THE BEST COACH OF THE TOURNAMENT </p>
+            </div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Add Team</button>
-      </form>
-      <h3>Current Teams</h3>
-      <ul id="team-list" class="list-group">
-        <!-- Dynamically populated -->
+        <!-- Repeat similar blocks for more players -->
+      </div>
+    </section>
+
+    <section class="achievements mt-4">
+      <h3>Achievements</h3>
+      <ul class="list-group">
+        <li class="list-group-item">🏆 Winner of The First Ascent - 2025</li>
+        <li class="list-group-item">🌍 Top 5 in Global Championships 2025</li>
+        <!-- Add more achievements -->
       </ul>
-      <a href="index.html" class="btn btn-secondary mt-3">Go to Bracket</a>
-    </main>
+    </section>
+
+    <!-- Button to trigger modal for more details -->
+    <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#achievementModal">View Full Achievements</button>
+
+    <!-- Modal for detailed achievements -->
+    <div class="modal fade" id="achievementModal" tabindex="-1" aria-labelledby="achievementModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-warning" id="achievementModalLabel">Team Phoenix Achievements</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>🔥 Winner of The First Ascent - 2025</p>
+            <p>🌍 Top 5 in Global Championships 2025</p>
+            <p>💎 Most Valuable Player (EANIO) - 2025</p>
+            <p>🚀 Best Strategy Award - 2024</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <!-- Bootstrap & AOS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init(); // Initialize AOS Library
+  </script>
 </body>
 </html>
