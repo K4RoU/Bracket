@@ -2,54 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Double Elimination Bracket</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>The Final Ascent</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Dark Theme */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Custom Styles */
+    .tag-card {
+      border-radius: 8px;
+      background: #1f1f1f;
+      transition: transform 0.3s ease;
+      color: white;
+    }
+
+    .tag-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .upcoming-section ul {
+      padding-left: 0;
+      background: #1f1f1f;
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .list-group-item {
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+      border-color: #333;
+    }
+
+    .squad-support {
+      background-color: #222;
+      padding: 30px;
+      margin-top: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+    }
+
+    .squad-support h3 {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .squad-highlight {
+      margin-top: 20px;
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    /* Custom Flexbox for Responsive Grid */
+    @media (min-width: 768px) {
+      .tag-card {
+        height: 100%;
+      }
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #0056b3;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .squad-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 10px;
+    }
+
+    .squad-link:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+      background: #292929;
+    }
+
+    .header {
+      background-color: #000;
+      padding: 20px 0;
+    }
+
+    .footer {
+      background-color: #1f1f1f;
+      padding: 15px;
+      color: #e0e0e0;
+    }
+  </style>
 </head>
 <body>
-  <div class="container py-4">
-    <header class="text-center">
-      <h1 class="mb-4">Double Elimination Tournament Bracket</h1>
-      <a href="add-team.html" class="btn btn-success mb-3">Add Teams</a>
-    </header>
+  <!-- Header -->
+  <header class="header text-center py-5">
+    <img src="assets/logo.png" alt="The Final Ascent Logo" class="logo">
+    <h1 class="display-4 fw-bold text-warning" data-aos="fade-down">The Final Ascent</h1>
+    <p class="lead" data-aos="fade-up">Experience the Thrill of Competitive Gaming</p>
+  </header>
 
-    <main>
+  <!-- Main Content -->
+  <main class="container my-5">
+    <!-- Register Section -->
+    <section class="register-section text-center" data-aos="zoom-in">
+      <h2 class="text-info">Register Your Team</h2>
+      <p class="mb-4">Sign in with your Google Account to join the tournament</p>
+      <button id="googleLogin" class="btn btn-primary btn-lg">Sign in with Google</button>
+    </section>
+
+    <!-- Tags Section -->
+    <section class="tags-section mt-5">
+      <h3 class="mb-4 text-light" data-aos="fade-right">Explore the Tournament</h3>
       <div class="row g-4">
-        <!-- Winners Bracket -->
-        <div class="col-md-6">
-          <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white text-center">
-              <h3>Winners Bracket</h3>
-            </div>
-            <div class="card-body">
-              <ul id="winner-matches" class="list-group">
-                <!-- Matches dynamically generated -->
-              </ul>
-            </div>
+        <div class="col-12 col-md-4" data-aos="fade-up">
+          <div class="card p-3 shadow-sm tag-card">
+            <h5 class="tag-title text-warning">ပြိုင်ပွဲအကြောင်းအရာ</h5>
+            <p class="tag-description">The most thrilling event of the year awaits. Learn about the rules and format here!</p>
           </div>
         </div>
-
-        <!-- Losers Bracket -->
-        <div class="col-md-6">
-          <div class="card shadow-sm">
-            <div class="card-header bg-danger text-white text-center">
-              <h3>Losers Bracket</h3>
-            </div>
-            <div class="card-body">
-              <ul id="loser-matches" class="list-group">
-                <!-- Matches dynamically generated -->
-              </ul>
-            </div>
+        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-3 shadow-sm tag-card">
+            <h5 class="tag-title text-warning">Champions Team History</h5>
+            <p class="tag-description">Check out the records of the greatest teams from past seasons.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-3 shadow-sm tag-card">
+            <h5 class="tag-title text-warning">အကောင်းဆုံး Player</h5>
+            <p class="tag-description">Discover the most skilled players of the tournament.</p>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+    <!-- Upcoming Tournaments -->
+    <section class="upcoming-section mt-5">
+      <h3 class="mb-4 text-light" data-aos="fade-left">Upcoming Tournaments</h3>
+      <ul class="list-group" data-aos="fade-up">
+        <li class="list-group-item">The First Ascent - March 2025</li>
+        <li class="list-group-item">The Final Ascent - April 2025</li>
+      </ul>
+    </section>
+
+    <!-- Squad Support Program -->
+    <section class="squad-support mt-5" data-aos="fade-up">
+      <h3>Squad Support Program of the Month</h3>
+      <div class="squad-highlight">
+        <a href="team-detail-page.html" class="squad-link">
+          <h4 class="text-warning">Congratulations to <span id="team-name">Team Phoenix</span>!</h4>
+          <p><strong>Reward:</strong> 500 Diamonds & Exclusive Coaching Session</p>
+          <p>
+            <strong>Why They Were Chosen:</strong> Team Phoenix showcased exceptional teamwork
+            and strategy, making them the top-performing squad of the month.
+          </p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-3">
+    <p>&copy; 2025 The Final Ascent. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init(); // Initialize AOS Library
+  </script>
 </body>
 </html>
